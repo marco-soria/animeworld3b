@@ -29,11 +29,11 @@ from rest_framework_simplejwt.views import (
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="ECOMMERCE API",
+      title="AnimeWorld API",
       default_version='v1',
-      description="Example of ecommerce API With Django and DRF",
+      description="Animeworld Store API",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="cesarmayta@gmail.com"),
+      contact=openapi.Contact(email="marco.soria@pucp.edu.pe"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,

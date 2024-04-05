@@ -78,4 +78,15 @@ class OrderPaymentView(generics.ListCreateAPIView):
     queryset = OrderPayment.objects.all()
     serializer_class = OrderPaymentSerializer
     
-    
+
+#view category product
+class CategoryProductListView(generics.ListAPIView):
+    serializer_class = CategoryProductSerializer
+
+    def get_queryset(self):
+        category_name = self.kwargs['category_name']
+        try:
+            category = Category.objects.get(name=category_name)
+            return [category]
+        except Category.DoesNotExist:
+            return []
