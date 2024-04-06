@@ -4,9 +4,13 @@ from django.utils.text import slugify
 # Register your models here.
 from .models import (
     Category,
-    Product
+    Product,
+    Order,
+    OrderDetail
 )
 
+admin.site.register(Order)
+admin.site.register(OrderDetail)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'price', 'category', 'created_at')
     list_filter = ('category',)  # Filtrado por categoría
@@ -29,3 +33,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 # Registra el modelo Category con su respectivo admin personalizado
 admin.site.register(Category, CategoryAdmin)
+
