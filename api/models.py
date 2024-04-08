@@ -23,7 +23,7 @@ class Product(models.Model):
                                  on_delete=models.RESTRICT)
     created_at = models.DateTimeField(auto_now_add=True)
     average_rating = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)  # Campo para el promedio de ratings
-    is_favorite = models.BooleanField(default=False)
+    
     
     class Meta:
         db_table = 'tbl_product'
@@ -101,3 +101,11 @@ class OrderPayment(models.Model):
     
 
 # Create your models here.
+class Favorite(models.Model):
+    client = models.ForeignKey(Client, related_name='favorites', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='favorited_by', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+
+    class Meta:
+        unique_together = ['client', 'product']

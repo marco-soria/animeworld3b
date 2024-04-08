@@ -6,7 +6,7 @@ from .models import (
     Category,Product,
     Client,
     Order,OrderDetail,
-    PaymentMethod,OrderPayment
+    PaymentMethod,OrderPayment, Favorite
 )
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -19,9 +19,16 @@ class CategorySerializer(serializers.ModelSerializer):
         return representation
         
 class ProductSerializer(serializers.ModelSerializer):
+    is_favorite = serializers.SerializerMethodField()
     class Meta:
         model = Product
         fields = '__all__'
+        
+    def get_is_favorite(self, obj):
+        request = self.context.get('request')
+        if request and request.user.is_authenticated:
+            return Favorite.objects.filter(client=request.user.client, product=obj).exists()
+        return False
         
     def to_representation(self,instance):
         representation = super().to_representation(instance)
@@ -126,3 +133,7 @@ class OrderPaymentSerializer(serializers.ModelSerializer):
         return representation
         
         
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
+        fields = ['id', 'client', 'product', 'created_at']

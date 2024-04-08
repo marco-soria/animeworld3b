@@ -14,5 +14,11 @@ urlpatterns = [
     path('client/byuser/<int:user_id>',views.ClienteDetailByUserView.as_view()),
     path('order',views.OrderView.as_view()),
     path('paymentmethod',views.PaymentMethodView.as_view()),
-    path('order/payment',views.OrderPaymentView.as_view())
+    path('order/payment',views.OrderPaymentView.as_view()),
+    
+    path('favorites/', views.FavoriteListView.as_view(), name='favorite-list'),
+    path('favorites/<int:pk>/', views.FavoriteDetailView.as_view(), name='favorite-detail'),
+    path('products/<int:pk>/toggle_favorite/', views.ToggleFavoriteView.as_view(), name='toggle-favorite'),
+    
+    path('authenticated_products/', views.AuthenticatedProductView.as_view()),
 ]
