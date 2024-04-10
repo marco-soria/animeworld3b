@@ -54,7 +54,7 @@ class Order(models.Model):
     client = models.ForeignKey(Client,on_delete=models.RESTRICT)
     total_price = models.DecimalField(max_digits=10,decimal_places=2,default=0)
     discount = models.DecimalField(max_digits=10,decimal_places=2,default=0)
-    status = models.CharField(max_length=1,choices=STATUS_CHOICES,default='1')
+    status = models.CharField(max_length=1,choices=STATUS_CHOICES,default='2')
     
     class Meta:
         db_table = 'tbl_order'
