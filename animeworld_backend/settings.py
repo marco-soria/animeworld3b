@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^1-l&^hn!p6@npl$^j4ls+l%20nav4y78*)us#&$wb8+wpaaai'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['animeworld3b.onrender.com']
 
