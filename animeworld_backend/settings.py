@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'animeworld_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "db_animeworld3",
@@ -100,6 +100,17 @@ DATABASES = {
         "PASSWORD": "root",
         "HOST": "127.0.0.1",
         "PORT": "5432",
+    }
+} """
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config('POSTGRES_DB'),
+        "USER": config('POSTGRES_USER'),
+        "PASSWORD": config('POSTGRES_PASSWORD'),
+        "HOST": config('POSTGRES_HOST'),
+        "PORT": config('POSTGRES_PORT'),
     }
 }
 
