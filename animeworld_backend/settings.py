@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-^1-l&^hn!p6@npl$^j4ls+l%20nav4y78*)us#&$wb8+wpaaai
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['animeworld3b.onrender.com']
 
 
 # Application definition
