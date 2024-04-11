@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-^1-l&^hn!p6@npl$^j4ls+l%20nav4y78*)us#&$wb8+wpaaai
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['animeworld3b.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -149,7 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
